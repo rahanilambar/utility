@@ -10,4 +10,30 @@ If a file is already renamed in this particular format, it skips the rename oper
 - **Image:** `IMG_YYYYMMDDHHmmss_xxxx.EXTENSION`
 - **Video:** `VID_YYYYMMDDHHmmss_xxxx.EXTENSION`
 
-> **Note:** `xxxx` signifies a 4-character SHA hash.
+> **Note:** `xxxx` represents the first 4 characters of the file's SHA-256 hash.
+
+#### How to run (In Powershell)
+
+### 1. No Path (Current Directory)
+
+Processes all supported media files in the current working directory by default:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\rename_unique_hash_script.ps1
+```
+
+### 2. Single Path
+
+Processes all supported media files in one specified directory:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\rename_unique_hash_script.ps1 "C:\Users\YourName\Pictures\Vacation"
+```
+
+### 3. Multiple Paths
+
+Processes multiple directories sequentially in a single run by passing space-separated paths:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\rename_unique_hash_script.ps1 "C:\Photos\Trip 1" "D:\Videos\2026" ".\Subfolder"
+```
